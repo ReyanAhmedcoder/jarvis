@@ -1,21 +1,41 @@
 # JARVIS Interface
 
-A simple browser-based JARVIS-style assistant built with HTML, CSS, and JavaScript. Click the central core to activate voice recognition and use voice commands like:
+A browser-based JARVIS-style assistant built with HTML, CSS, and JavaScript.
 
-- "hello"
-- "open google"
-- "time"
-- "identity"
+## Features
+
+- Voice command activation by clicking the glowing core
+- Speech recognition using Web Speech API
+- Voice responses using Speech Synthesis
+- Commands for opening Google, opening GitHub, searching, checking the time, and identity queries
+- Responsive futuristic UI with animated rings and status feedback
+
+## Voice commands
+
+- `hello` or `hey`
+- `open google`
+- `open github`
+- `search for <your query>`
+- `time`
+- `identity`
 
 ## Files
 
-- `index.html` — UI shell and script inclusion
-- `style.css` — visual styling and animation
-- `jarvis.js` — voice recognition logic and command handling
+- `index.html` — application UI and structure
+- `style.css` — visual styling and responsive layout
+- `jarvis.js` — voice recognition logic, command handling, and speech output
 
 ## Usage
 
-Open `index.html` in a supported browser and click the circular core to start listening.
+1. Open `index.html` in a supported browser such as Chrome or Edge.
+2. Allow microphone access when prompted.
+3. Click the central core to start listening.
+4. Speak one of the supported commands.
+
+## Notes
+
+- The app uses browser-native Web Speech APIs, so it works best on modern Chromium-based browsers.
+- If voice recognition is unavailable, the status text will show a compatibility warning.
 
 ## License
 

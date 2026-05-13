@@ -2,15 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JARVIS Interface</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="jarvis-container">
-        <div class="ring" id="outer-ring"></div>
-        <div class="ring" id="inner-ring"></div>
-        <div class="core" id="main-core"></div>
-        <h1 id="status">SITTING BY...</h1>
+    <div class="page-shell">
+        <header class="app-header">
+            <h1>JARVIS</h1>
+            <p class="app-subtitle">Click the glowing core to start listening and control the browser with voice.</p>
+        </header>
+
+        <main>
+            <div class="jarvis-container">
+                <div class="ring" id="outer-ring"></div>
+                <div class="ring" id="inner-ring"></div>
+                <div class="core" id="main-core"></div>
+
+                <div class="status-panel">
+                    <h2 id="status">SITTING BY...</h2>
+                    <p id="transcript">Try saying: "hello", "time", "open google"</p>
+                </div>
+            </div>
+
+            <section class="commands">
+                <h3>Available voice commands</h3>
+                <ul>
+                    <li><strong>hello</strong> or <strong>hey</strong></li>
+                    <li><strong>open google</strong></li>
+                    <li><strong>open github</strong></li>
+                    <li><strong>search for ...</strong></li>
+                    <li><strong>time</strong></li>
+                    <li><strong>identity</strong></li>
+                </ul>
+            </section>
+        </main>
     </div>
 
     <script src="jarvis.js"></script>

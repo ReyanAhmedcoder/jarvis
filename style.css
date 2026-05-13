@@ -1,54 +1,152 @@
 body {
-    background: #000;
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #071a2c 0%, #000 55%);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
     color: #00d4ff;
     font-family: 'Orbitron', sans-serif;
 }
 
+.page-shell {
+    width: min(100%, 920px);
+    padding: 24px;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: clamp(2.4rem, 4vw, 4rem);
+}
+
+.app-subtitle {
+    margin: 0.5rem auto 0;
+    max-width: 680px;
+    color: rgba(0, 212, 255, 0.84);
+}
+
+main {
+    display: grid;
+    gap: 32px;
+}
+
 .jarvis-container {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
+    min-height: 420px;
+    border: 1px solid rgba(0, 212, 255, 0.16);
+    border-radius: 28px;
+    padding: 32px;
+    background: rgba(4, 19, 34, 0.7);
+    box-shadow: 0 0 80px rgba(0, 212, 255, 0.12);
 }
 
 .ring {
     position: absolute;
-    border: 2px solid rgba(0, 212, 255, 0.3);
+    border: 2px solid rgba(0, 212, 255, 0.25);
     border-radius: 50%;
     transition: all 0.3s ease;
 }
 
 #outer-ring {
-    width: 300px;
-    height: 300px;
+    width: 320px;
+    height: 320px;
     border-top: 4px solid #00d4ff;
-    animation: rotate 4s linear infinite;
+    animation: rotate 5s linear infinite;
 }
 
 #inner-ring {
-    width: 240px;
-    height: 240px;
+    width: 250px;
+    height: 250px;
     border-bottom: 4px solid #00d4ff;
-    animation: rotate-reverse 2s linear infinite;
+    animation: rotate-reverse 3.5s linear infinite;
 }
 
 .core {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     background: radial-gradient(circle, #00d4ff 0%, #002b36 70%);
     border-radius: 50%;
-    box-shadow: 0 0 50px #00d4ff;
+    box-shadow: 0 0 60px #00d4ff;
     cursor: pointer;
+    position: relative;
+    z-index: 2;
 }
 
-/* Add a "pulsing" effect when JARVIS is listening */
-.active .core {
-    animation: pulse 1.5s infinite;
+.status-panel {
+    position: absolute;
+    bottom: 24px;
+    text-align: center;
+    z-index: 1;
+    width: 100%;
+    color: #d2f7ff;
+}
+
+.status-panel h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+}
+
+.status-panel p {
+    margin: 0.75rem auto 0;
+    max-width: 560px;
+    color: rgba(210, 247, 255, 0.9);
+}
+
+.commands {
+    padding: 24px;
+    border-radius: 24px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 212, 255, 0.12);
+}
+
+.commands h3 {
+    margin-top: 0;
+    color: #a0ecff;
+}
+
+.commands ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.commands li {
+    margin: 0.65rem 0;
+    font-size: 1rem;
+}
+
+.commands strong {
+    color: #ffffff;
+}
+
+@media (max-width: 640px) {
+    .jarvis-container {
+        padding: 18px;
+        min-height: 360px;
+    }
+
+    #outer-ring {
+        width: 260px;
+        height: 260px;
+    }
+
+    #inner-ring {
+        width: 200px;
+        height: 200px;
+    }
+
+    .core {
+        width: 100px;
+        height: 100px;
+    }
 }
 
 @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -58,3 +156,7 @@ body {
     50% { transform: scale(1.1); box-shadow: 0 0 80px #00d4ff; }
     100% { transform: scale(1); box-shadow: 0 0 50px #00d4ff; }
 }
+
+.active .core {
+    animation: pulse 1.5s infinite;
+} 
