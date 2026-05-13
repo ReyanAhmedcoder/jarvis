@@ -2,13 +2,15 @@ const status = document.getElementById('status');
 const transcriptDisplay = document.getElementById('transcript');
 const container = document.querySelector('.jarvis-container');
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = SpeechRecognition ? new SpeechRecognition() : null;
 
 if (!SpeechRecognition) {
     status.innerText = 'VOICE NOT SUPPORTED';
     transcriptDisplay.innerText = 'Use Chrome or Edge and allow microphone access.';
     console.warn('SpeechRecognition is not supported in this browser.');
-} else {
-    const recognition = new SpeechRecognition();
+} 
+
+if (recognition) {
     recognition.interimResults = false;
     recognition.continuous = false;
     recognition.lang = 'en-US';
@@ -40,8 +42,13 @@ if (!SpeechRecognition) {
     };
 
     document.getElementById('main-core').addEventListener('click', () => {
+        container.classList.add('active');
         updateStatus('ACTIVATING...');
-        recognition.start();
+        if (recognition) {
+            recognition.start();
+        } else {
+            updateTranscript('Voice recognition not supported in this browser.');
+        }
     });
 }
 
